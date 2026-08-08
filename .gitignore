@@ -1,0 +1,52 @@
+# Built application files and outputs
+*.apk
+*.aar
+*.ap_
+*.aab
+output-metadata.json
+
+# Files for the ART/Dalvik VM
+*.dex
+
+# Java and Kotlin class files
+*.class
+
+# Generated build directories
+build/
+/*/build/
+bin/
+gen/
+out/
+.gradle/
+
+# Local configuration files (contains your personal SDK paths, etc.)
+local.properties
+
+# Signing files (NEVER commit your production credentials)
+*.jks
+*.keystore
+
+# Android Studio / IntelliJ files
+.idea/workspace.xml
+.idea/tasks.xml
+.idea/caches/
+.idea/libraries/
+.idea/modules.xml
+.idea/navEditor.xml
+.idea/assetWizardSettings.xml
+*.iml
+
+# Crash logs and profiling data
+*.log
+captures/
+*.hprof
+
+# NDK / Native build artifacts
+.externalNativeBuild/
+.cxx/
+ndkBuild/
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
