@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="total_balance">Total Balance</string>
+    <string name="income_this_month">Income (This Month)</string>
+    <string name="spent_this_month">Spent (This Month)</string>
+</resources>
