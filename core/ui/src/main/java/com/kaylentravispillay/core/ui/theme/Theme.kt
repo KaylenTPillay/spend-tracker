@@ -116,7 +116,30 @@ fun TrackerTheme(
         else -> LightColors
     }
 
-    CompositionLocalProvider(LocalSpacing provides Spacing()) {
+    val semanticColor = when {
+        darkTheme -> {
+            TrackerSemanticColor(
+                income = IncomeGreenDark,
+                expense = ExpenseRedDark,
+                budget = BudgetBlueDark,
+                warning = WarningOrangeDark
+            )
+        }
+
+        else -> {
+            TrackerSemanticColor(
+                income = IncomeGreenLight,
+                expense = ExpenseRedLight,
+                budget = BudgetBlueLight,
+                warning = WarningOrangeLight
+            )
+        }
+    }
+
+    CompositionLocalProvider(
+        LocalSpacing provides Spacing(),
+        LocalTrackerSemanticColor provides semanticColor
+    ) {
         MaterialTheme(
             colorScheme = colorScheme,
             typography = TrackerMaterialTypography,
@@ -130,6 +153,9 @@ fun TrackerTheme(
 object TrackerTheme {
     val spacing: Spacing
         @Composable get() = LocalSpacing.current
+
+    val semanticColor: TrackerSemanticColor
+        @Composable get() = LocalTrackerSemanticColor.current
 
     object Typography {
         val numericLarge: TextStyle = NumericLarge

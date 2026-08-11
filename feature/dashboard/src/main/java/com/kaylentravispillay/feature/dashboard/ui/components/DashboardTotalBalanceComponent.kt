@@ -19,6 +19,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
@@ -90,13 +91,15 @@ internal fun DashboardTotalBalanceComponent(
                     DashboardTotalBalanceBreakdownComponent(
                         title = stringResource(R.string.income_this_month),
                         icon = painterResource(CoreR.drawable.filled_material_arrow_upward_alt),
-                        total = state.income
+                        total = state.income,
+                        semanticColor = TrackerTheme.semanticColor.income
                     )
 
                     DashboardTotalBalanceBreakdownComponent(
                         title = stringResource(R.string.spent_this_month),
                         icon = painterResource(CoreR.drawable.filled_material_arrow_downward_alt),
-                        total = state.spent
+                        total = state.spent,
+                        semanticColor = TrackerTheme.semanticColor.expense
                     )
                 }
             }
@@ -109,6 +112,7 @@ private fun DashboardTotalBalanceBreakdownComponent(
     modifier: Modifier = Modifier,
     title: String,
     icon: Painter,
+    semanticColor: Color,
     total: String
 ) {
     Column(modifier = modifier) {
@@ -125,12 +129,13 @@ private fun DashboardTotalBalanceBreakdownComponent(
             Icon(
                 modifier = Modifier.size(20.dp),
                 painter = icon,
-                contentDescription = null
+                contentDescription = null,
+                tint = semanticColor
             )
             Text(
                 text = total,
                 style = MaterialTheme.typography.labelLarge,
-                color = MaterialTheme.colorScheme.onBackground
+                color = semanticColor
             )
         }
     }

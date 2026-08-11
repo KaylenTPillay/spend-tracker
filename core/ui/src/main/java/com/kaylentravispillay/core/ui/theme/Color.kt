@@ -1,5 +1,6 @@
 package com.kaylentravispillay.core.ui.theme
 
+import androidx.compose.runtime.staticCompositionLocalOf
 import androidx.compose.ui.graphics.Color
 
 // Light Colours
@@ -115,3 +116,31 @@ internal val md_dark_tertiaryFixed = Color(0xFFD1FAE5)
 internal val md_dark_tertiaryFixedDim = Color(0xFFA7F3D0)
 internal val md_dark_onTertiaryFixed = Color(0xFF064E3B)
 internal val md_dark_onTertiaryFixedVariant = Color(0xFF047857)
+
+// Light Semantic Colors
+internal val IncomeGreenLight = Color(0xFF059669)
+internal val ExpenseRedLight = Color(0xFFE11D48)
+internal val BudgetBlueLight = Color(0xFF0284C7)
+internal val WarningOrangeLight = Color(0xFFD97706)
+
+// Dark Semantic Colors
+internal val IncomeGreenDark = Color(0xFF34D399)
+internal val ExpenseRedDark = Color(0xFFFB7185)
+internal val BudgetBlueDark = Color(0xFF38BDF8)
+internal val WarningOrangeDark = Color(0xFFFBBF24)
+
+data class TrackerSemanticColor(
+    val income: Color,
+    val expense: Color,
+    val budget: Color,
+    val warning: Color
+)
+
+val LocalTrackerSemanticColor = staticCompositionLocalOf {
+    TrackerSemanticColor(
+        income = Color.Unspecified,
+        expense = Color.Unspecified,
+        budget = Color.Unspecified,
+        warning = Color.Unspecified
+    )
+}
