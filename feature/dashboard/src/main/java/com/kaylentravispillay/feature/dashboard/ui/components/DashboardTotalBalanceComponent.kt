@@ -33,10 +33,11 @@ internal fun DashboardTotalBalanceComponent(
     state: DashboardTotalBalanceUiState
 ) {
     Card(
+        modifier = modifier,
         shape = MaterialTheme.shapes.medium
     ) {
         Box(
-            modifier = modifier
+            modifier = Modifier
                 .padding(TrackerTheme.spacing.lg)
         ) {
             Column {
