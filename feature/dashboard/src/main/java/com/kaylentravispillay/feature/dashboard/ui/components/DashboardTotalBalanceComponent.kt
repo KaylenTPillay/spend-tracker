@@ -37,7 +37,7 @@ internal fun DashboardTotalBalanceComponent(
 ) {
     OutlinedCard(
         modifier = modifier,
-        shape = MaterialTheme.shapes.extraLarge,
+        shape = MaterialTheme.shapes.large,
         colors = CardDefaults.cardColors(
             containerColor = MaterialTheme.colorScheme.surface
         ),
