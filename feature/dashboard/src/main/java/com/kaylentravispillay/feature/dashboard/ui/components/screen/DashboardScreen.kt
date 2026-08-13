@@ -14,10 +14,10 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.kaylentravispillay.core.ui.R
 import com.kaylentravispillay.core.ui.theme.TrackerTheme
-import com.kaylentravispillay.feature.dashboard.ui.components.DashboardMonthlyBudgetComponent
-import com.kaylentravispillay.feature.dashboard.ui.components.DashboardTotalBalanceComponent
-import com.kaylentravispillay.feature.dashboard.ui.state.DashboardMonthlyBudgetUiState
-import com.kaylentravispillay.feature.dashboard.ui.state.DashboardTotalBalanceUiState
+import com.kaylentravispillay.feature.dashboard.ui.components.MonthlyBudget
+import com.kaylentravispillay.feature.dashboard.ui.components.TotalBalance
+import com.kaylentravispillay.feature.dashboard.ui.state.MonthlyBudgetUiState
+import com.kaylentravispillay.feature.dashboard.ui.state.TotalBalanceUiState
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -36,15 +36,15 @@ fun DashboardScreen() {
                 .padding(16.dp),
             verticalArrangement = Arrangement.spacedBy(TrackerTheme.spacing.md)
         ) {
-            DashboardTotalBalanceComponent(
-                state = DashboardTotalBalanceUiState(
+            TotalBalance(
+                state = TotalBalanceUiState(
                     balance = "R14,500.50",
                     income = "R45,000.00",
                     spent = "R56,748.44"
                 )
             )
-            DashboardMonthlyBudgetComponent(
-                state = DashboardMonthlyBudgetUiState(
+            MonthlyBudget(
+                state = MonthlyBudgetUiState(
                     allocation = "R29,000.00",
                     usedAmount = "R14,500.00",
                     usedProgress = 0.5F

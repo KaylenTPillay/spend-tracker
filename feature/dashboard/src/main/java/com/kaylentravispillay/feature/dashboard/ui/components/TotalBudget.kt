@@ -28,12 +28,12 @@ import androidx.compose.ui.unit.dp
 import com.kaylentravispillay.core.ui.R as CoreR
 import com.kaylentravispillay.core.ui.theme.TrackerTheme
 import com.kaylentravispillay.feature.dashboard.R
-import com.kaylentravispillay.feature.dashboard.ui.state.DashboardTotalBalanceUiState
+import com.kaylentravispillay.feature.dashboard.ui.state.TotalBalanceUiState
 
 @Composable
-internal fun DashboardTotalBalanceComponent(
+internal fun TotalBalance(
     modifier: Modifier = Modifier,
-    state: DashboardTotalBalanceUiState
+    state: TotalBalanceUiState
 ) {
     OutlinedCard(
         modifier = modifier,
@@ -143,15 +143,15 @@ private fun DashboardTotalBalanceBreakdownComponent(
 
 @Preview
 @Composable
-private fun DashboardTotalBalanceComponent_Light_Preview() {
-    val previewState = DashboardTotalBalanceUiState(
+private fun TotalBalance_Light_Preview() {
+    val previewState = TotalBalanceUiState(
         balance = "R12,450.00",
         income = "R71,200.21",
         spent = "R38,200.76"
     )
 
     TrackerTheme {
-        DashboardTotalBalanceComponent(
+        TotalBalance(
             modifier = Modifier.fillMaxWidth(),
             state = previewState
         )
@@ -160,15 +160,15 @@ private fun DashboardTotalBalanceComponent_Light_Preview() {
 
 @Preview
 @Composable
-private fun DashboardTotalBalanceComponent_Dark_Preview() {
-    val previewState = DashboardTotalBalanceUiState(
+private fun TotalBalance_Dark_Preview() {
+    val previewState = TotalBalanceUiState(
         balance = "R12,450.00",
         income = "R71,200.21",
         spent = "R38,200.76"
     )
 
     TrackerTheme(darkTheme = true) {
-        DashboardTotalBalanceComponent(
+        TotalBalance(
             modifier = Modifier.fillMaxWidth(),
             state = previewState
         )

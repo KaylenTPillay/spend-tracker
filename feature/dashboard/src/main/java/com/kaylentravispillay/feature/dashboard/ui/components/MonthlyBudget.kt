@@ -22,12 +22,12 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.kaylentravispillay.core.ui.theme.TrackerTheme
 import com.kaylentravispillay.feature.dashboard.R
-import com.kaylentravispillay.feature.dashboard.ui.state.DashboardMonthlyBudgetUiState
+import com.kaylentravispillay.feature.dashboard.ui.state.MonthlyBudgetUiState
 
 @Composable
-internal fun DashboardMonthlyBudgetComponent(
+internal fun MonthlyBudget(
     modifier: Modifier = Modifier,
-    state: DashboardMonthlyBudgetUiState
+    state: MonthlyBudgetUiState
 ) {
     OutlinedCard(
         modifier = modifier,
@@ -108,14 +108,14 @@ internal fun DashboardMonthlyBudgetComponent(
 
 @Preview
 @Composable
-private fun DashboardMonthlyBudgetComponentPreview_Light() {
-    val previewState = DashboardMonthlyBudgetUiState(
+private fun MonthlyBudgetPreview_Light() {
+    val previewState = MonthlyBudgetUiState(
         allocation = "R999,999,999.99",
         usedAmount = "R999,999,999.99",
         usedProgress = .1F
     )
     TrackerTheme {
-        DashboardMonthlyBudgetComponent(
+        MonthlyBudget(
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(16.dp),
@@ -126,14 +126,14 @@ private fun DashboardMonthlyBudgetComponentPreview_Light() {
 
 @Preview
 @Composable
-private fun DashboardMonthlyBudgetComponentPreview_Dark() {
-    val previewState = DashboardMonthlyBudgetUiState(
+private fun MonthlyBudgetPreview_Dark() {
+    val previewState = MonthlyBudgetUiState(
         allocation = "R999,999,999.99",
         usedAmount = "R999,999,999.99",
         usedProgress = .56F
     )
     TrackerTheme(darkTheme = true) {
-        DashboardMonthlyBudgetComponent(
+        MonthlyBudget(
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(16.dp),

@@ -1,6 +1,6 @@
 package com.kaylentravispillay.feature.dashboard.ui.state
 
-internal class DashboardTotalBalanceUiState(
+internal class TotalBalanceUiState(
     val balance: String,
     val income: String,
     val spent: String

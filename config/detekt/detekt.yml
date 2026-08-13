@@ -112,6 +112,7 @@ complexity:
   LongMethod:
     active: true
     allowedLines: 60
+    ignoreAnnotated: ['Composable']
   LongParameterList:
     active: true
     allowedFunctionParameters: 5
