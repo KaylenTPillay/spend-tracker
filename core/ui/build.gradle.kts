@@ -30,6 +30,8 @@ dependencies {
     implementation(platform(libs.compose.bom))
     implementation(libs.compose.material3)
     implementation(libs.compose.preview)
+    implementation(libs.compose.material.icons)
+    implementation(libs.compose.material.icons.extended)
     debugImplementation(libs.compose.tooling)
 
     testImplementation(libs.junit)

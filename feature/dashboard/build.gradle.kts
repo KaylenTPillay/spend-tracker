@@ -33,6 +33,8 @@ dependencies {
     implementation(libs.compose.material3)
     implementation(libs.compose.preview)
     debugImplementation(libs.compose.tooling)
+    implementation(libs.compose.material.icons)
+    implementation(libs.compose.material.icons.extended)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.espresso.core)
