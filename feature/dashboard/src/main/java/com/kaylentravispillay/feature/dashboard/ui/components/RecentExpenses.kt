@@ -11,6 +11,7 @@ import androidx.compose.material3.OutlinedCard
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.util.fastForEach
@@ -18,6 +19,7 @@ import com.kaylentravispillay.core.ui.components.ExpenseItem
 import com.kaylentravispillay.core.ui.state.CategoryIconUiState
 import com.kaylentravispillay.core.ui.state.ExpenseItemUiState
 import com.kaylentravispillay.core.ui.theme.TrackerTheme
+import com.kaylentravispillay.feature.dashboard.R
 import com.kaylentravispillay.feature.dashboard.ui.state.RecentExpensesUiState
 
 @Composable
@@ -40,7 +42,7 @@ internal fun RecentExpenses(
             Text(
                 modifier = Modifier
                     .padding(TrackerTheme.spacing.lg),
-                text = "Recent Expenses",
+                text = stringResource(R.string.recent_expenses),
                 style = MaterialTheme.typography.labelLarge,
                 color = MaterialTheme.colorScheme.onSurfaceVariant
             )
