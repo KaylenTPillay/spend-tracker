@@ -6,11 +6,12 @@ import com.kaylentravispillay.core.common.annotations.MainDispatcher
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
+import dagger.hilt.components.SingletonComponent
 import kotlinx.coroutines.Dispatchers
 import javax.inject.Singleton
 
 @Module
-@InstallIn(Singleton::class)
+@InstallIn(SingletonComponent::class)
 object AnnotationModule {
     @Provides
     @IoDispatcher
