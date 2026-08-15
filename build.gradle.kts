@@ -2,6 +2,8 @@ import com.android.build.api.dsl.ApplicationExtension
 import com.android.build.api.dsl.LibraryExtension
 import com.android.build.api.dsl.Lint
 import dev.detekt.gradle.extensions.DetektExtension
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 private val detektPluginId = "dev.detekt"
 private val androidApplicationPluginId = "com.android.application"
@@ -48,6 +50,16 @@ subprojects {
         extensions.configure<DetektExtension> {
             configureStaticAnalysis()
         }
+    }
+
+    tasks.withType<KotlinCompile> {
+        compilerOptions {
+            jvmTarget = JvmTarget.JVM_21
+        }
+    }
+
+    tasks.withType<Test> {
+        useJUnitPlatform()
     }
 }
 

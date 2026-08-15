@@ -11,6 +11,7 @@ android {
 dependencies {
     implementation(project(":core:common"))
     implementation(project(":core:domain"))
+    implementation(platform(libs.junit.bom))
 
     implementation(libs.androidx.appcompat)
     implementation(libs.androidx.core.ktx)
@@ -22,6 +23,9 @@ dependencies {
     ksp(libs.androidx.room3.compiler)
     ksp(libs.hilt.compiler)
 
-    testImplementation(libs.junit)
+    testImplementation(libs.junit.jupiter)
+    testImplementation(libs.kotest.assertions.core)
+    testRuntimeOnly(libs.junit.platform)
+
     androidTestImplementation(libs.androidx.junit)
 }
