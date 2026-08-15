@@ -3,6 +3,19 @@ import com.android.build.api.dsl.LibraryExtension
 import com.android.build.api.dsl.Lint
 import dev.detekt.gradle.extensions.DetektExtension
 
+private val detektPluginId = "dev.detekt"
+private val androidApplicationPluginId = "com.android.application"
+private val androidLibraryPluginId = "com.android.library"
+
+private val targetSdkVersion = 37
+private val compileSdkVersion = targetSdkVersion
+private val minSdkVersion = 28
+
+private val javaVersion = JavaVersion.VERSION_21
+
+private val applicationVersionCode = 1
+private val applicationVersionName = "1.0.0-alpha"
+
 plugins {
     alias(libs.plugins.android.application) apply false
     alias(libs.plugins.ksp) apply false
@@ -13,34 +26,83 @@ plugins {
 }
 
 subprojects {
-    plugins.apply("dev.detekt")
-    plugins.withId("com.android.application") {
+    plugins.apply(detektPluginId)
+
+    plugins.withId(androidApplicationPluginId) {
         extensions.configure<ApplicationExtension> {
-            configureAndroidLint(lint)
+            lint.configureAndroidLint()
+            configureAndroidApplication()
         }
+
         extensions.configure<DetektExtension> {
             configureStaticAnalysis()
         }
     }
-    plugins.withId("com.android.library") {
+
+    plugins.withId(androidLibraryPluginId) {
         extensions.configure<LibraryExtension> {
-            configureAndroidLint(lint)
+            lint.configureAndroidLint()
+            configureAndroidLibrary()
         }
+
         extensions.configure<DetektExtension> {
             configureStaticAnalysis()
         }
     }
 }
 
-fun configureAndroidLint(lint: Lint) {
-    lint.apply {
-        abortOnError = true
-        checkAllWarnings = true
-        warningsAsErrors = false
-    }
+fun Lint.configureAndroidLint() {
+    abortOnError = true
+    checkAllWarnings = true
+    warningsAsErrors = false
 }
 
 fun DetektExtension.configureStaticAnalysis() {
     config.setFrom(file("config/detekt/detekt.yml"))
     buildUponDefaultConfig = true
+}
+
+fun LibraryExtension.configureAndroidLibrary() {
+    compileSdk {
+        version = release(compileSdkVersion)
+    }
+
+    defaultConfig {
+        minSdk = minSdkVersion
+        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    compileOptions {
+        sourceCompatibility = javaVersion
+        targetCompatibility = javaVersion
+    }
+}
+
+fun ApplicationExtension.configureAndroidApplication() {
+    compileSdk {
+        version = release(compileSdkVersion)
+    }
+
+    defaultConfig {
+        applicationId = "com.kaylentravispillay.tracker"
+        minSdk = minSdkVersion
+        targetSdk = targetSdkVersion
+
+        versionCode = applicationVersionCode
+        versionName = applicationVersionName
+
+        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            optimization {
+                enable = false
+            }
+        }
+    }
+    compileOptions {
+        sourceCompatibility = javaVersion
+        targetCompatibility = javaVersion
+    }
 }

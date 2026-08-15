@@ -6,20 +6,6 @@ plugins {
 
 android {
     namespace = "com.kaylentravispillay.core.common"
-    compileSdk {
-        version = release(37)
-    }
-
-    defaultConfig {
-        minSdk = 28
-
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-    }
-    compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
-    }
-
 }
 
 dependencies {
