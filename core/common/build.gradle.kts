@@ -20,7 +20,9 @@ dependencies {
 
     testImplementation(libs.junit.jupiter)
     testImplementation(libs.kotest.assertions.core)
+    testImplementation(libs.mockk)
     testRuntimeOnly(libs.junit.platform)
 
     androidTestImplementation(libs.androidx.junit)
+    androidTestImplementation(libs.mockk.android)
 }
