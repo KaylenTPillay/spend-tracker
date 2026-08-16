@@ -24,4 +24,12 @@ internal object MapperLocalSource {
             iconType = iconType
         )
     }
+
+    fun CategoryEntity.toLocal(): Category {
+        return Category(
+            id = id,
+            name = name,
+            iconType = iconType
+        )
+    }
 }
