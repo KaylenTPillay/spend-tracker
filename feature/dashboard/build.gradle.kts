@@ -16,16 +16,17 @@ dependencies {
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.runtime)
     implementation(libs.material)
-
     implementation(libs.compose.material3)
     implementation(libs.compose.preview)
     debugImplementation(libs.compose.tooling)
     implementation(libs.compose.material.icons)
     implementation(libs.compose.material.icons.extended)
+    implementation(libs.coroutines.android)
 
     testImplementation(libs.junit.jupiter)
     testImplementation(libs.kotest.assertions.core)
     testImplementation(libs.mockk)
+    testImplementation(libs.coroutines.test)
     testRuntimeOnly(libs.junit.platform)
 
     androidTestImplementation(libs.androidx.espresso.core)

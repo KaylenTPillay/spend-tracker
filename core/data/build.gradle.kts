@@ -15,9 +15,8 @@ dependencies {
 
     implementation(libs.androidx.appcompat)
     implementation(libs.androidx.core.ktx)
-
+    implementation(libs.coroutines.android)
     implementation(libs.androidx.room3.runtime)
-
     implementation(libs.hilt.android)
 
     ksp(libs.androidx.room3.compiler)
@@ -26,6 +25,7 @@ dependencies {
     testImplementation(libs.junit.jupiter)
     testImplementation(libs.kotest.assertions.core)
     testImplementation(libs.mockk)
+    testImplementation(libs.coroutines.test)
     testRuntimeOnly(libs.junit.platform)
 
     androidTestImplementation(libs.androidx.junit)

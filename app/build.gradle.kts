@@ -21,9 +21,10 @@ dependencies {
     implementation(libs.androidx.activity.compose)
     implementation(libs.material)
     implementation(libs.hilt.android)
-
+    implementation(libs.coroutines.android)
     implementation(libs.compose.material3)
     implementation(libs.compose.preview)
+
     debugImplementation(libs.compose.tooling)
 
     ksp(libs.hilt.compiler)
@@ -31,6 +32,7 @@ dependencies {
     testImplementation(libs.junit.jupiter)
     testImplementation(libs.kotest.assertions.core)
     testImplementation(libs.mockk)
+    testImplementation(libs.coroutines.test)
     testRuntimeOnly(libs.junit.platform)
 
     androidTestImplementation(libs.androidx.espresso.core)
