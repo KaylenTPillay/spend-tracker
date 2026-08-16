@@ -21,6 +21,7 @@ internal object MapperLocalSource {
         return CategoryEntity(
             id = id,
             name = name,
+            description = description,
             iconType = iconType
         )
     }
@@ -29,6 +30,7 @@ internal object MapperLocalSource {
         return Category(
             id = id,
             name = name,
+            description = description,
             iconType = iconType
         )
     }

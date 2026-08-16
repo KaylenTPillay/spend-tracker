@@ -8,5 +8,6 @@ import androidx.room3.PrimaryKey
 internal data class CategoryEntity(
     @PrimaryKey(autoGenerate = true) val id: Int,
     @ColumnInfo(name = "name") val name: String,
+    @ColumnInfo(name = "description") val description: String?,
     @ColumnInfo(name = "icon_type") val iconType: String
 )

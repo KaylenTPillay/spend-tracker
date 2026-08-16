@@ -54,6 +54,7 @@ class TransactionLocalSourceImplTest {
                     category = Category(
                         id = 2,
                         name = "Test-Transaction-Category-Name",
+                        description = "Test-Description",
                         iconType = "Test-Transaction-Category-Icon-Type"
                     ),
                     timestamp = 1_000_000L

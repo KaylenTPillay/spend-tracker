@@ -37,7 +37,7 @@ local.properties
 .idea/appInsightsSettings.xml
 .idea/.name
 /.idea/androidTestResultsUserPreferences.xml
-/.idea/deploymentTargetSelector
+/.idea/deploymentTargetSelector.xml
 *.iml
 
 # Crash logs and profiling data

@@ -30,6 +30,7 @@ class MapperLocalSourceTest {
                 category = Category(
                     id = 2,
                     name = "Test-Category-Name",
+                    description = "Test-Category-Description",
                     iconType = "Test-Category-Icon-Type"
                 ),
                 timestamp = 1_000_000L
@@ -59,11 +60,13 @@ class MapperLocalSourceTest {
             val input = Category(
                 id = 2,
                 name = "Test-Category-Name",
+                description = "Test-Category-Description",
                 iconType = "Test-Icon-Type"
             )
             val expectedEntity = CategoryEntity(
                 id = 2,
                 name = "Test-Category-Name",
+                description = "Test-Category-Description",
                 iconType = "Test-Icon-Type"
             )
 
@@ -83,11 +86,13 @@ class MapperLocalSourceTest {
             val input = CategoryEntity(
                 id = 2,
                 name = "Test-Category-Name",
+                description = "Test-Category-Description",
                 iconType = "Test-Category-Icon-Type"
             )
             val expectedLocal = Category(
                 id = 2,
                 name = "Test-Category-Name",
+                description = "Test-Category-Description",
                 iconType = "Test-Category-Icon-Type"
             )
 

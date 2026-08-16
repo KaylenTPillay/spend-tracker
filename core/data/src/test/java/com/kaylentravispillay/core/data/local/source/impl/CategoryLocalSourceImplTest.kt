@@ -50,6 +50,7 @@ class CategoryLocalSourceImplTest {
                 val input = Category(
                     id = 2,
                     name = "Test-Category",
+                    description = "Test-Description",
                     iconType = "Test-Icon-Type"
                 )
                 val expectedEntity = input.toEntity()
@@ -78,11 +79,13 @@ class CategoryLocalSourceImplTest {
                     CategoryEntity(
                         id = 1,
                         name = "Test-Category-1",
+                        description = "Test-Description-1",
                         iconType = "Test-Category-Icon-1"
                     ),
                     CategoryEntity(
                         id = 2,
                         name = "Test-Category-2",
+                        description = "Test-Description-2",
                         iconType = "Test-Category-Icon-2"
                     )
                 )
