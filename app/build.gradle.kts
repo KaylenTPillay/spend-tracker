@@ -33,6 +33,7 @@ dependencies {
     testImplementation(libs.kotest.assertions.core)
     testImplementation(libs.mockk)
     testImplementation(libs.coroutines.test)
+    testImplementation(libs.cash.turbine)
     testRuntimeOnly(libs.junit.platform)
 
     androidTestImplementation(libs.androidx.espresso.core)
