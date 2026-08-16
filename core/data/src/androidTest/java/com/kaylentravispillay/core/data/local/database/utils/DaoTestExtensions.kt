@@ -1,5 +1,6 @@
-package com.kaylentravispillay.core.data.local.database.daos
+package com.kaylentravispillay.core.data.local.database.utils
 
+import com.kaylentravispillay.core.data.local.database.daos.CategoryDao
 import com.kaylentravispillay.core.data.local.database.tables.CategoryEntity
 
 internal suspend fun CategoryDao.seedCategories() {

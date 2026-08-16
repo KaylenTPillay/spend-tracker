@@ -6,11 +6,11 @@ import androidx.test.ext.junit.runners.AndroidJUnit4
 import app.cash.turbine.test
 import com.kaylentravispillay.core.data.local.database.TrackerDatabase
 import com.kaylentravispillay.core.data.local.database.tables.TransactionEntity
+import com.kaylentravispillay.core.data.local.database.utils.seedCategories
 import com.kaylentravispillay.core.data.local.source.model.FinancialSummaryLocal
 import com.kaylentravispillay.core.domain.model.TransactionType
 import io.kotest.matchers.equals.shouldEqual
 import kotlinx.coroutines.ExperimentalCoroutinesApi
-import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.test.UnconfinedTestDispatcher
 import kotlinx.coroutines.test.runTest
 import org.junit.After
