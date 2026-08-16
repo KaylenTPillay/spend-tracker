@@ -29,8 +29,6 @@ private val LightColors = lightColorScheme(
     surfaceVariant = md_light_surfaceVariant,
     onSurfaceVariant = md_light_onSurfaceVariant,
     surfaceTint = md_light_surfaceTint,
-    inverseSurface = md_light_inverseSurface,
-    inverseOnSurface = md_light_inverseOnSurface,
     error = md_light_error,
     onError = md_light_onError,
     errorContainer = md_light_errorContainer,
@@ -80,8 +78,6 @@ private val DarkColors = darkColorScheme(
     surfaceVariant = md_dark_surfaceVariant,
     onSurfaceVariant = md_dark_onSurfaceVariant,
     surfaceTint = md_dark_surfaceTint,
-    inverseSurface = md_dark_inverseSurface,
-    inverseOnSurface = md_dark_inverseOnSurface,
     error = md_dark_error,
     onError = md_dark_onError,
     errorContainer = md_dark_errorContainer,
@@ -120,7 +116,30 @@ fun TrackerTheme(
         else -> LightColors
     }
 
-    CompositionLocalProvider(LocalSpacing provides Spacing()) {
+    val semanticColor = when {
+        darkTheme -> {
+            TrackerSemanticColor(
+                income = IncomeGreenDark,
+                expense = ExpenseRedDark,
+                budget = BudgetBlueDark,
+                warning = WarningOrangeDark
+            )
+        }
+
+        else -> {
+            TrackerSemanticColor(
+                income = IncomeGreenLight,
+                expense = ExpenseRedLight,
+                budget = BudgetBlueLight,
+                warning = WarningOrangeLight
+            )
+        }
+    }
+
+    CompositionLocalProvider(
+        LocalSpacing provides Spacing(),
+        LocalTrackerSemanticColor provides semanticColor
+    ) {
         MaterialTheme(
             colorScheme = colorScheme,
             typography = TrackerMaterialTypography,
@@ -134,6 +153,9 @@ fun TrackerTheme(
 object TrackerTheme {
     val spacing: Spacing
         @Composable get() = LocalSpacing.current
+
+    val semanticColor: TrackerSemanticColor
+        @Composable get() = LocalTrackerSemanticColor.current
 
     object Typography {
         val numericLarge: TextStyle = NumericLarge

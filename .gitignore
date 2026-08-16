@@ -34,6 +34,10 @@ local.properties
 .idea/modules.xml
 .idea/navEditor.xml
 .idea/assetWizardSettings.xml
+.idea/appInsightsSettings.xml
+.idea/.name
+/.idea/androidTestResultsUserPreferences.xml
+/.idea/deploymentTargetSelector.xml
 *.iml
 
 # Crash logs and profiling data
@@ -49,4 +53,3 @@ ndkBuild/
 # OS-specific files
 .DS_Store
 Thumbs.db
-

@@ -10,6 +10,7 @@ data class Spacing(
     val md: Dp = 16.dp,
     val lg: Dp = 24.dp,
     val xl: Dp = 32.dp,
+    val xxl: Dp = 48.dp,
     val gutter: Dp = 24.dp,
     val containerPaddingMobile: Dp = 16.dp,
     val containerPaddingDesktop: Dp = 32.dp

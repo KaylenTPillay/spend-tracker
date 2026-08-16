@@ -7,35 +7,13 @@ plugins {
 
 android {
     namespace = "com.kaylentravispillay.tracker"
-    compileSdk {
-        version = release(37)
-    }
-
-    defaultConfig {
-        applicationId = "com.kaylentravispillay.tracker"
-        minSdk = 28
-        targetSdk = 37
-        versionCode = 1
-        versionName = "1.0"
-
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-    }
-
-    buildTypes {
-        release {
-            optimization {
-                enable = false
-            }
-        }
-    }
-    compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
-    }
 }
 
 dependencies {
     implementation(project(":core:ui"))
+    implementation(project(":feature:dashboard"))
+    implementation(platform(libs.junit.bom))
+    implementation(platform(libs.compose.bom))
 
     implementation(libs.androidx.appcompat)
     implementation(libs.androidx.core.ktx)
@@ -43,15 +21,22 @@ dependencies {
     implementation(libs.androidx.activity.compose)
     implementation(libs.material)
     implementation(libs.hilt.android)
-
-    implementation(platform(libs.compose.bom))
+    implementation(libs.coroutines.android)
     implementation(libs.compose.material3)
     implementation(libs.compose.preview)
+
     debugImplementation(libs.compose.tooling)
 
     ksp(libs.hilt.compiler)
 
-    testImplementation(libs.junit)
+    testImplementation(libs.junit.jupiter)
+    testImplementation(libs.kotest.assertions.core)
+    testImplementation(libs.mockk)
+    testImplementation(libs.coroutines.test)
+    testImplementation(libs.cash.turbine)
+    testRuntimeOnly(libs.junit.platform)
+
     androidTestImplementation(libs.androidx.espresso.core)
     androidTestImplementation(libs.androidx.junit)
+    androidTestImplementation(libs.mockk.android)
 }

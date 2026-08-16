@@ -1,6 +1,10 @@
 <component name="ProjectDictionaryState">
   <dictionary name="project">
     <words>
+      <w>dontdowncastcollectiontypes</w>
+      <w>ignorelateinitvar</w>
+      <w>projectllocprocessor</w>
+      <w>projectslocprocessor</w>
       <w>tnum</w>
     </words>
   </dictionary>
