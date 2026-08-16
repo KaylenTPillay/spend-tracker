@@ -1,15 +1,20 @@
 package com.kaylentravispillay.core.data.local.source.impl
 
+import app.cash.turbine.test
 import com.kaylentravispillay.core.data.local.database.daos.TransactionDao
-import com.kaylentravispillay.core.data.local.database.tables.TransactionEntity
+import com.kaylentravispillay.core.data.local.source.model.FinancialSummaryLocal
+import com.kaylentravispillay.core.data.local.source.model.mapper.MapperLocalSource.toEntity
 import com.kaylentravispillay.core.domain.model.Category
 import com.kaylentravispillay.core.domain.model.Transaction
 import com.kaylentravispillay.core.domain.model.TransactionType
+import io.kotest.matchers.equals.shouldEqual
 import io.mockk.clearMocks
 import io.mockk.coEvery
 import io.mockk.coVerify
+import io.mockk.every
 import io.mockk.mockk
 import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.test.UnconfinedTestDispatcher
 import kotlinx.coroutines.test.runTest
 import org.junit.jupiter.api.AfterEach
@@ -53,14 +58,7 @@ class TransactionLocalSourceImplTest {
                     ),
                     timestamp = 1_000_000L
                 )
-                val expectedTransactionEntity = TransactionEntity(
-                    id = 0,
-                    timestamp = 1_000_000L,
-                    amount = 200,
-                    title = "Test-Transaction-Title",
-                    type = TransactionType.Unknown,
-                    categoryId = 2
-                )
+                val expectedTransactionEntity = inputTransaction.toEntity()
 
                 coEvery {
                     mockTransactionDao.addTransaction(any())
@@ -72,6 +70,37 @@ class TransactionLocalSourceImplTest {
                 // Assert
                 coVerify(exactly = 1) {
                     mockTransactionDao.addTransaction(expectedTransactionEntity)
+                }
+            }
+    }
+
+    @Nested
+    inner class ObserveFinancialSummaryTestSuite {
+        @Test
+        fun `WHEN observeFinancialSummary is called THEN observe flow of data from dao`() =
+            runTest(testDispatcher) {
+                // Arrange
+                val inputStartMonth = 200L
+                val expectedItem = FinancialSummaryLocal(
+                    total = 100,
+                    monthlyIncome = 200,
+                    monthlyExpenses = 300
+                )
+                val testFlow = flowOf(expectedItem)
+
+                every {
+                    mockTransactionDao.observeFinancialSummaryProjection(inputStartMonth)
+                } returns testFlow
+
+                // Act
+                val actualFlow = source.observeFinancialSummary(inputStartMonth)
+
+                // Assert
+                actualFlow.test {
+                    val actualItem = awaitItem()
+                    expectedItem shouldEqual actualItem
+
+                    awaitComplete()
                 }
             }
     }
