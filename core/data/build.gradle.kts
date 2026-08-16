@@ -2,10 +2,15 @@ plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.ksp)
     alias(libs.plugins.hilt)
+    alias(libs.plugins.room)
 }
 
 android {
     namespace = "com.kaylentravispillay.core.data"
+}
+
+room3 {
+    schemaDirectory("$projectDir/schema")
 }
 
 dependencies {

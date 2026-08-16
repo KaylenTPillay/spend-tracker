@@ -61,3 +61,4 @@ hilt = { id = "com.google.dagger.hilt.android", version.ref = "hiltAndroid" }
 compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 android-library = { id = "com.android.library", version.ref = "agp" }
 detekt = { id = "dev.detekt", version.ref = "detekt" }
+room = { id = "androidx.room3", version.ref = "room" }

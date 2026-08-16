@@ -3,6 +3,7 @@ package com.kaylentravispillay.core.data.local.database.daos
 import androidx.room3.Room
 import androidx.test.core.app.ApplicationProvider
 import androidx.test.ext.junit.runners.AndroidJUnit4
+import app.cash.turbine.test
 import com.kaylentravispillay.core.data.local.database.TrackerDatabase
 import com.kaylentravispillay.core.data.local.database.tables.CategoryEntity
 import io.kotest.matchers.equals.shouldEqual
@@ -14,6 +15,7 @@ import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
 import java.io.IOException
+import kotlin.math.exp
 
 @RunWith(value = AndroidJUnit4::class)
 class CategoryDaoTest {
@@ -46,10 +48,15 @@ class CategoryDaoTest {
             val expectedList = emptyList<CategoryEntity>()
 
             // Act
-            val actualList = dao.getCategories()
+            val resultFlow = dao.observeCategories()
 
             // Assert
-            actualList shouldEqual expectedList
+            resultFlow.test {
+                val actualList = awaitItem()
+                cancelAndIgnoreRemainingEvents()
+
+                actualList shouldEqual expectedList
+            }
         }
 
     @Test
@@ -78,9 +85,14 @@ class CategoryDaoTest {
             dao.addCategory(testCategoryOne)
             dao.addCategory(testCategoryTwo)
 
-            val actualList = dao.getCategories()
+            val resultFlow = dao.observeCategories()
 
             // Assert
-            actualList shouldEqual expectedList
+            resultFlow.test {
+                val actualList = awaitItem()
+                cancelAndIgnoreRemainingEvents()
+
+                actualList shouldEqual expectedList
+            }
         }
 }

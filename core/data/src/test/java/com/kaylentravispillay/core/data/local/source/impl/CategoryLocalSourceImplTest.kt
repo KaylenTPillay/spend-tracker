@@ -1,18 +1,22 @@
 package com.kaylentravispillay.core.data.local.source.impl
 
+import app.cash.turbine.test
 import com.kaylentravispillay.core.data.local.database.daos.CategoryDao
 import com.kaylentravispillay.core.data.local.database.tables.CategoryEntity
 import com.kaylentravispillay.core.data.local.source.model.mapper.MapperLocalSource.toEntity
 import com.kaylentravispillay.core.data.local.source.model.mapper.MapperLocalSource.toLocal
 import com.kaylentravispillay.core.domain.model.Category
+import io.kotest.matchers.equals.shouldEqual
 import io.kotest.matchers.result.shouldBeFailure
 import io.kotest.matchers.result.shouldBeSuccess
 import io.mockk.clearMocks
 import io.mockk.coEvery
 import io.mockk.coVerify
+import io.mockk.every
 import io.mockk.mockk
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.test.UnconfinedTestDispatcher
 import kotlinx.coroutines.test.runTest
 import org.junit.jupiter.api.AfterEach
@@ -70,9 +74,9 @@ class CategoryLocalSourceImplTest {
     }
 
     @Nested
-    inner class GetCategoriesTestSuite {
+    inner class ObserveCategoriesTestSuite {
         @Test
-        fun `WHEN getCategories is called THEN return successful result with mapped data`() =
+        fun `WHEN observeCategories is called THEN collect correctly mapped local models`() =
             runTest(testDispatcher) {
                 // Arrange
                 val testCategoryEntities = listOf(
@@ -89,50 +93,23 @@ class CategoryLocalSourceImplTest {
                         iconType = "Test-Category-Icon-2"
                     )
                 )
+                val testFlow = flowOf(testCategoryEntities)
                 val expectedLocalCollection =
                     testCategoryEntities.map { entity -> entity.toLocal() }
 
-                coEvery {
-                    mockCategoryDao.getCategories()
-                } returns testCategoryEntities
+                every {
+                    mockCategoryDao.observeCategories()
+                } returns testFlow
 
                 // Act
-                val actualResult = source.getCategories()
+                val resultFlow = source.observeCategories()
 
                 // Assert
-                actualResult shouldBeSuccess expectedLocalCollection
-            }
+                resultFlow.test {
+                    val actualLocalCollection = awaitItem()
+                    awaitComplete()
 
-        @Test
-        fun `GIVEN generic exception WHEN getCategories is called THEN return failure result with generic exception`() =
-            runTest(testDispatcher) {
-                // Arrange
-                val expectedException = Exception("Something went wrong")
-
-                coEvery {
-                    mockCategoryDao.getCategories()
-                } throws expectedException
-
-                // Act
-                val actualResult = source.getCategories()
-
-                // Assert
-                actualResult shouldBeFailure expectedException
-            }
-
-        @Test
-        fun `GIVEN cancellation exception WHEN getCategories is called THEN throw cancellation exception`() =
-            runTest(testDispatcher) {
-                // Arrange
-                val expectedException = CancellationException("Coroutine Cancelled")
-
-                coEvery {
-                    mockCategoryDao.getCategories()
-                } throws expectedException
-
-                // Act & Assert
-                assertThrows<CancellationException> {
-                    source.getCategories()
+                    actualLocalCollection shouldEqual expectedLocalCollection
                 }
             }
     }
