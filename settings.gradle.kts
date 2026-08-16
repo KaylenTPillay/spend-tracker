@@ -31,7 +31,8 @@ dependencyResolutionManagement {
 rootProject.name = "Tracker"
 include(":app")
 include(":core:ui")
-include(":feature:dashboard")
 include(":core:data")
 include(":core:domain")
 include(":core:common")
+include(":feature:dashboard")
+include(":feature:categories")
