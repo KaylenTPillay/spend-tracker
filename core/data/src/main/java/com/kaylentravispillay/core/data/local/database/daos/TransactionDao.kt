@@ -13,12 +13,30 @@ internal interface TransactionDao {
     @Upsert
     suspend fun addTransaction(transaction: TransactionEntity)
 
-    @Query("""
+    @Query(
+        """
         SELECT
-            SUM(CASE WHEN type = 'Income' THEN amount ELSE -amount END) AS total,
-            SUM(CASE WHEN type = 'Income' AND timestamp >= :monthStart THEN amount ELSE 0 END) AS monthly_income,
-            SUM(CASE WHEN type = 'Expense' AND timestamp >= :monthStart THEN amount ELSE 0 END) AS monthly_expenses
+            SUM(
+                CASE 
+                    WHEN type = 'Income' THEN amount
+                    WHEN type = 'Expense' THEN -amount
+                    ELSE 0
+                END
+            ) AS total,
+            SUM(
+                CASE 
+                    WHEN type = 'Income' AND timestamp >= :monthStart THEN amount 
+                    ELSE 0 
+                END
+            ) AS monthly_income,
+            SUM(
+                CASE 
+                    WHEN type = 'Expense' AND timestamp >= :monthStart THEN amount 
+                    ELSE 0 
+                END
+            ) AS monthly_expenses
         FROM transactions
-    """)
+    """
+    )
     fun observeFinancialSummaryProjection(monthStart: Long): Flow<FinancialSummaryLocal>
 }
