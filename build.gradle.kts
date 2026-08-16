@@ -82,6 +82,7 @@ fun LibraryExtension.configureAndroidLibrary() {
     defaultConfig {
         minSdk = minSdkVersion
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunnerArguments["clearPackageData"] = "true"
     }
 
     compileOptions {
@@ -104,6 +105,7 @@ fun ApplicationExtension.configureAndroidApplication() {
         versionName = applicationVersionName
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunnerArguments["clearPackageData"] = "true"
     }
 
     buildTypes {

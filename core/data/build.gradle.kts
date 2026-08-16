@@ -23,12 +23,26 @@ dependencies {
     ksp(libs.hilt.compiler)
 
     testImplementation(libs.junit.jupiter)
-    testImplementation(libs.kotest.assertions.core)
     testImplementation(libs.mockk)
-    testImplementation(libs.coroutines.test)
-    testImplementation(libs.cash.turbine)
     testRuntimeOnly(libs.junit.platform)
+
+    @Suppress("AvoidDuplicateDependencies")
+    testImplementation(libs.coroutines.test)
+    @Suppress("AvoidDuplicateDependencies")
+    testImplementation(libs.cash.turbine)
+    @Suppress("AvoidDuplicateDependencies")
+    testImplementation(libs.kotest.assertions.core)
 
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.mockk.android)
+    androidTestImplementation(libs.androidx.test.runner)
+
+    @Suppress("AvoidDuplicateDependencies")
+    androidTestImplementation(libs.coroutines.test)
+    @Suppress("AvoidDuplicateDependencies")
+    androidTestImplementation(libs.cash.turbine)
+    @Suppress("AvoidDuplicateDependencies")
+    androidTestImplementation(libs.kotest.assertions.core)
+
+    androidTestUtil(libs.androidx.test.orchestrator)
 }

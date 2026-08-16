@@ -18,6 +18,8 @@ kotestAssertions = "6.2.4"
 mockk = "1.14.11"
 coroutines = "1.11.0"
 turbine = "1.2.1"
+androidTestRunner = "1.7.0"
+androidTestOrcherstrator = "1.6.1"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -47,6 +49,8 @@ mockk-android = { group = "io.mockk", name = "mockk-android", version.ref = "moc
 coroutines-android = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-android", version.ref = "coroutines" }
 coroutines-test = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-test", version.ref = "coroutines" }
 cash-turbine = { group = "app.cash.turbine", name = "turbine", version.ref = "turbine" }
+androidx-test-runner = { group = "androidx.test", name = "runner", version.ref = "androidTestRunner" }
+androidx-test-orchestrator = { group = "androidx.test", name = "orchestrator", version.ref = "androidTestOrcherstrator" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

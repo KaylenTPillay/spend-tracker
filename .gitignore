@@ -36,6 +36,7 @@ local.properties
 .idea/assetWizardSettings.xml
 .idea/appInsightsSettings.xml
 .idea/.name
+/.idea/androidTestResultsUserPreferences.xml
 *.iml
 
 # Crash logs and profiling data
