@@ -16,5 +16,10 @@ enum class CategoryIconUiState(val key: String) {
     FitnessCentre("fitness_centre"),
     Pets("pets"),
     TrendUp("trend_up"),
-    Label("label")
+    Label("label");
+
+    companion object {
+        private val lookup = entries.associateBy { entry -> entry.key }
+        fun fromValue(value: String) = lookup[value] ?: Label
+    }
 }

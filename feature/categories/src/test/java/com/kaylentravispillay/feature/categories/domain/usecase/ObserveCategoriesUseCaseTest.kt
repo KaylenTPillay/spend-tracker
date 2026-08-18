@@ -2,7 +2,7 @@ package com.kaylentravispillay.feature.categories.domain.usecase
 
 import app.cash.turbine.test
 import com.kaylentravispillay.core.domain.model.Category
-import com.kaylentravispillay.feature.categories.domain.repository.CategoriesRepository
+import com.kaylentravispillay.feature.categories.domain.repository.CategoryRepository
 import io.kotest.matchers.equals.shouldEqual
 import io.mockk.clearMocks
 import io.mockk.every
@@ -17,7 +17,7 @@ import org.junit.jupiter.api.Test
 
 class ObserveCategoriesUseCaseTest {
     private lateinit var useCase: ObserveCategoriesUseCase
-    private val mockRepository: CategoriesRepository = mockk()
+    private val mockRepository: CategoryRepository = mockk()
 
     @OptIn(ExperimentalCoroutinesApi::class)
     private val testDispatcher = UnconfinedTestDispatcher()

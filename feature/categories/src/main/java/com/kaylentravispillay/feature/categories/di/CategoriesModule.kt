@@ -1,7 +1,7 @@
 package com.kaylentravispillay.feature.categories.di
 
-import com.kaylentravispillay.feature.categories.data.repository.CategoriesRepositoryImpl
-import com.kaylentravispillay.feature.categories.domain.repository.CategoriesRepository
+import com.kaylentravispillay.feature.categories.data.repository.CategoryRepositoryImpl
+import com.kaylentravispillay.feature.categories.domain.repository.CategoryRepository
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
@@ -13,7 +13,7 @@ import javax.inject.Singleton
 internal abstract class CategoriesModule {
     @Binds
     @Singleton
-    abstract fun bindCategoriesRepository(
-        impl: CategoriesRepositoryImpl
-    ): CategoriesRepository
+    abstract fun bindCategoryRepository(
+        impl: CategoryRepositoryImpl
+    ): CategoryRepository
 }

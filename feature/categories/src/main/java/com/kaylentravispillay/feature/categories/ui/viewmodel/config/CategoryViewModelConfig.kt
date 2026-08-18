@@ -1,0 +1,10 @@
+package com.kaylentravispillay.feature.categories.ui.viewmodel.config
+
+import androidx.lifecycle.SavedStateHandle
+import javax.inject.Inject
+
+class CategoryViewModelConfig @Inject constructor(
+    savedStateHandle: SavedStateHandle
+) {
+    val isManageMode: Boolean = savedStateHandle["isManageMode"] ?: false
+}

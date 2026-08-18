@@ -16,8 +16,8 @@ import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Nested
 import org.junit.jupiter.api.Test
 
-class CategoriesRepositoryImplTest {
-    private lateinit var repository: CategoriesRepositoryImpl
+class CategoryRepositoryImplTest {
+    private lateinit var repository: CategoryRepositoryImpl
     private val mockLocalSource: CategoryLocalSource = mockk()
 
     @OptIn(ExperimentalCoroutinesApi::class)
@@ -25,7 +25,7 @@ class CategoriesRepositoryImplTest {
 
     @BeforeEach
     fun setup() {
-        repository = CategoriesRepositoryImpl(
+        repository = CategoryRepositoryImpl(
             categoryLocalSource = mockLocalSource,
             dispatcher = testDispatcher
         )

@@ -6,7 +6,7 @@ import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.runtime.Composable
 import com.kaylentravispillay.core.ui.theme.TrackerTheme
-import com.kaylentravispillay.feature.categories.ui.component.CategoriesScreenRoot
+import com.kaylentravispillay.feature.categories.ui.component.screen.CategoriesScreenRoot
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -17,13 +17,15 @@ class TrackerActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             TrackerTheme {
-                TrackerRoot()
+                TrackerRoot {
+                    onBackPressedDispatcher.onBackPressed()
+                }
             }
         }
     }
 }
 
 @Composable
-private fun TrackerRoot() {
-    CategoriesScreenRoot()
+private fun TrackerRoot(onBackNav: () -> Unit) {
+    CategoriesScreenRoot(onNavigationIconClick = onBackNav)
 }
