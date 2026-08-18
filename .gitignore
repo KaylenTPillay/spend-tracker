@@ -27,17 +27,18 @@ local.properties
 *.keystore
 
 # Android Studio / IntelliJ files
-.idea/workspace.xml
-.idea/tasks.xml
-.idea/caches/
-.idea/libraries/
-.idea/modules.xml
-.idea/navEditor.xml
-.idea/assetWizardSettings.xml
-.idea/appInsightsSettings.xml
-.idea/.name
+/.idea/workspace.xml
+/.idea/tasks.xml
+/.idea/caches/
+/.idea/libraries/
+/.idea/modules.xml
+/.idea/navEditor.xml
+/.idea/assetWizardSettings.xml
+/.idea/appInsightsSettings.xml
+/.idea/.name
 /.idea/androidTestResultsUserPreferences.xml
 /.idea/deploymentTargetSelector.xml
+/.idea/inspectionProfiles/Project_Default.xml
 *.iml
 
 # Crash logs and profiling data
@@ -53,3 +54,4 @@ ndkBuild/
 # OS-specific files
 .DS_Store
 Thumbs.db
+

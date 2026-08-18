@@ -6,8 +6,10 @@ import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.runtime.Composable
 import com.kaylentravispillay.core.ui.theme.TrackerTheme
-import com.kaylentravispillay.feature.dashboard.ui.components.screen.DashboardScreen
+import com.kaylentravispillay.feature.categories.ui.component.CategoriesScreenRoot
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class TrackerActivity : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -23,5 +25,5 @@ class TrackerActivity : ComponentActivity() {
 
 @Composable
 private fun TrackerRoot() {
-    DashboardScreen()
+    CategoriesScreenRoot()
 }

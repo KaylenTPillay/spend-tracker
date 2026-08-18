@@ -12,6 +12,7 @@ android {
 dependencies {
     implementation(project(":core:ui"))
     implementation(project(":feature:dashboard"))
+    implementation(project(":feature:categories"))
     implementation(platform(libs.junit.bom))
     implementation(platform(libs.compose.bom))
 

@@ -20,6 +20,8 @@ dependencies {
     implementation(libs.androidx.appcompat)
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.runtime)
+    implementation(libs.androidx.lifecycle.viewmodel.ktx)
+    implementation(libs.androidx.lifecycle.viewmodel.compose)
     implementation(libs.material)
     implementation(libs.compose.material3)
     implementation(libs.compose.preview)
@@ -27,6 +29,7 @@ dependencies {
     implementation(libs.compose.material.icons.extended)
     implementation(libs.coroutines.android)
     implementation(libs.hilt.android)
+    implementation(libs.hilt.lifecycle.viewmodel.compose)
 
     debugImplementation(libs.compose.tooling)
 
