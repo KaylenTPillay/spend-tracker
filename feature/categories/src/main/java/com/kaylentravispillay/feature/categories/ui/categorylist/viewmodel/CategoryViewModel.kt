@@ -1,14 +1,14 @@
-package com.kaylentravispillay.feature.categories.ui.viewmodel
+package com.kaylentravispillay.feature.categories.ui.categorylist.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.kaylentravispillay.core.common.annotations.DefaultDispatcher
 import com.kaylentravispillay.core.domain.model.Category
 import com.kaylentravispillay.feature.categories.domain.usecase.ObserveCategoriesUseCase
-import com.kaylentravispillay.feature.categories.ui.state.CategoryBodyUiState
-import com.kaylentravispillay.feature.categories.ui.state.screen.CategoryScreenUiState
-import com.kaylentravispillay.feature.categories.ui.state.mapper.MapperCategoryUiState.toUiState
-import com.kaylentravispillay.feature.categories.ui.viewmodel.config.CategoryViewModelConfig
+import com.kaylentravispillay.feature.categories.ui.categorylist.state.CategoryBodyUiState
+import com.kaylentravispillay.feature.categories.ui.categorylist.state.screen.CategoryScreenUiState
+import com.kaylentravispillay.feature.categories.ui.categorylist.state.mapper.MapperCategoryUiState.toUiState
+import com.kaylentravispillay.feature.categories.ui.categorylist.viewmodel.config.CategoryViewModelConfig
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.flow.SharingStarted

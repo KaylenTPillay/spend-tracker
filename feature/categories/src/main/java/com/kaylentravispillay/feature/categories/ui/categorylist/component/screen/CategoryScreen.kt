@@ -1,4 +1,4 @@
-package com.kaylentravispillay.feature.categories.ui.component.screen
+package com.kaylentravispillay.feature.categories.ui.categorylist.component.screen
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -38,18 +38,18 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.kaylentravispillay.core.ui.state.CategoryIconUiState
 import com.kaylentravispillay.core.ui.theme.TrackerTheme
 import com.kaylentravispillay.feature.categories.R
-import com.kaylentravispillay.feature.categories.ui.component.CategoryItem
-import com.kaylentravispillay.feature.categories.ui.state.CategoryBodyUiState
-import com.kaylentravispillay.feature.categories.ui.state.CategoryItemUiState
-import com.kaylentravispillay.feature.categories.ui.state.screen.CategoryScreenUiState
-import com.kaylentravispillay.feature.categories.ui.viewmodel.CategoryViewModel
+import com.kaylentravispillay.feature.categories.ui.categorylist.component.CategoryItem
+import com.kaylentravispillay.feature.categories.ui.categorylist.state.CategoryBodyUiState
+import com.kaylentravispillay.feature.categories.ui.categorylist.state.CategoryItemUiState
+import com.kaylentravispillay.feature.categories.ui.categorylist.state.screen.CategoryScreenUiState
+import com.kaylentravispillay.feature.categories.ui.categorylist.viewmodel.CategoryViewModel
 
 @Composable
-fun CategoriesScreenRoot(
+internal fun CategoryScreenRoot(
     modifier: Modifier = Modifier,
+    viewModel: CategoryViewModel = hiltViewModel(),
     onNavigationIconClick: () -> Unit
 ) {
-    val viewModel: CategoryViewModel = hiltViewModel()
     val state by viewModel.state.collectAsStateWithLifecycle()
 
     CategoriesScreen(

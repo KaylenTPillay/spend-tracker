@@ -1,6 +1,6 @@
-package com.kaylentravispillay.feature.categories.ui.state
+package com.kaylentravispillay.feature.categories.ui.categorylist.state
 
-sealed class CategoryBodyUiState {
+internal sealed class CategoryBodyUiState {
     data object Loading : CategoryBodyUiState()
 
     data object Error : CategoryBodyUiState()

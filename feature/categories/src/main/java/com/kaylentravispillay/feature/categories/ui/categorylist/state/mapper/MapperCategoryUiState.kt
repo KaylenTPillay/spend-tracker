@@ -1,10 +1,10 @@
-package com.kaylentravispillay.feature.categories.ui.state.mapper
+package com.kaylentravispillay.feature.categories.ui.categorylist.state.mapper
 
 import com.kaylentravispillay.core.domain.model.Category
 import com.kaylentravispillay.core.ui.state.CategoryIconUiState
-import com.kaylentravispillay.feature.categories.ui.state.CategoryItemUiState
+import com.kaylentravispillay.feature.categories.ui.categorylist.state.CategoryItemUiState
 
-object MapperCategoryUiState {
+internal object MapperCategoryUiState {
     fun Category.toUiState(): CategoryItemUiState {
         return CategoryItemUiState(
             id = id,

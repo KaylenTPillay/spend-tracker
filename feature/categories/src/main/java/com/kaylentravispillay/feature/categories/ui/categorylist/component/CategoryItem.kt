@@ -1,4 +1,4 @@
-package com.kaylentravispillay.feature.categories.ui.component
+package com.kaylentravispillay.feature.categories.ui.categorylist.component
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.clickable
@@ -24,10 +24,10 @@ import androidx.compose.ui.unit.dp
 import com.kaylentravispillay.core.ui.components.CategoryIcon
 import com.kaylentravispillay.core.ui.state.CategoryIconUiState
 import com.kaylentravispillay.core.ui.theme.TrackerTheme
-import com.kaylentravispillay.feature.categories.ui.state.CategoryItemUiState
+import com.kaylentravispillay.feature.categories.ui.categorylist.state.CategoryItemUiState
 
 @Composable
-fun CategoryItem(
+internal fun CategoryItem(
     modifier: Modifier = Modifier,
     state: CategoryItemUiState,
     endIcon: (@Composable () -> Unit)? = null,
@@ -92,33 +92,6 @@ private fun RowScope.CategoryItemContent(
         }
     }
 }
-
-//@Composable
-//private fun CategoryItemEndIcon(
-//    modifier: Modifier = Modifier,
-//    isSelected: Boolean?,
-//    onEndIconSelect: () -> Unit
-//) {
-//    val isChecked = isSelected ?: false
-//
-//    IconToggleButton(
-//        modifier = modifier,
-//        checked = isChecked,
-//        onCheckedChange = { onEndIconSelect() }
-//    ) {
-//        if (isChecked) {
-//            Icon(
-//                imageVector = Icons.Outlined.CheckCircle,
-//                contentDescription = null
-//            )
-//        } else {
-//            Icon(
-//                imageVector = Icons.Outlined.Circle,
-//                contentDescription = null
-//            )
-//        }
-//    }
-//}
 
 @Preview
 @Composable

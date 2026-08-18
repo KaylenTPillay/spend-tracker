@@ -1,8 +1,8 @@
-package com.kaylentravispillay.feature.categories.ui.state
+package com.kaylentravispillay.feature.categories.ui.categorylist.state
 
 import com.kaylentravispillay.core.ui.state.CategoryIconUiState
 
-data class CategoryItemUiState(
+internal data class CategoryItemUiState(
     val id: Int,
     val title: String,
     val description: String?,
