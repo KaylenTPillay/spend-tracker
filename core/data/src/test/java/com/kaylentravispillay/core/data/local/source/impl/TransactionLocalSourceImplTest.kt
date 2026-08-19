@@ -5,6 +5,7 @@ import com.kaylentravispillay.core.data.local.database.daos.TransactionDao
 import com.kaylentravispillay.core.data.local.source.model.FinancialSummaryLocal
 import com.kaylentravispillay.core.data.local.source.model.mapper.MapperLocalSource.toEntity
 import com.kaylentravispillay.core.domain.model.Category
+import com.kaylentravispillay.core.domain.model.CategoryIconType
 import com.kaylentravispillay.core.domain.model.Transaction
 import com.kaylentravispillay.core.domain.model.TransactionType
 import io.kotest.matchers.equals.shouldEqual
@@ -55,7 +56,7 @@ class TransactionLocalSourceImplTest {
                         id = 2,
                         name = "Test-Transaction-Category-Name",
                         description = "Test-Description",
-                        iconType = "Test-Transaction-Category-Icon-Type"
+                        iconType = CategoryIconType.Label
                     ),
                     timestamp = 1_000_000L
                 )

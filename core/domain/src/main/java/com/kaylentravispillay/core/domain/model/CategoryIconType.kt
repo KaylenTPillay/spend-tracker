@@ -1,6 +1,6 @@
-package com.kaylentravispillay.core.ui.state
+package com.kaylentravispillay.core.domain.model
 
-enum class CategoryIconUiState {
+enum class CategoryIconType {
     ShoppingCart,
     Restaurant,
     LocalCafe,
@@ -16,5 +16,5 @@ enum class CategoryIconUiState {
     FitnessCentre,
     Pets,
     TrendUp,
-    Label;
+    Label
 }

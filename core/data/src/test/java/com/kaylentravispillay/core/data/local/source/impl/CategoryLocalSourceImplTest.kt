@@ -6,15 +6,13 @@ import com.kaylentravispillay.core.data.local.database.tables.CategoryEntity
 import com.kaylentravispillay.core.data.local.source.model.mapper.MapperLocalSource.toEntity
 import com.kaylentravispillay.core.data.local.source.model.mapper.MapperLocalSource.toLocal
 import com.kaylentravispillay.core.domain.model.Category
+import com.kaylentravispillay.core.domain.model.CategoryIconType
 import io.kotest.matchers.equals.shouldEqual
-import io.kotest.matchers.result.shouldBeFailure
-import io.kotest.matchers.result.shouldBeSuccess
 import io.mockk.clearMocks
 import io.mockk.coEvery
 import io.mockk.coVerify
 import io.mockk.every
 import io.mockk.mockk
-import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.test.UnconfinedTestDispatcher
@@ -23,7 +21,6 @@ import org.junit.jupiter.api.AfterEach
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Nested
 import org.junit.jupiter.api.Test
-import org.junit.jupiter.api.assertThrows
 
 class CategoryLocalSourceImplTest {
     private lateinit var source: CategoryLocalSourceImpl
@@ -55,7 +52,7 @@ class CategoryLocalSourceImplTest {
                     id = 2,
                     name = "Test-Category",
                     description = "Test-Description",
-                    iconType = "Test-Icon-Type"
+                    iconType = CategoryIconType.Label
                 )
                 val expectedEntity = input.toEntity()
 
@@ -84,13 +81,13 @@ class CategoryLocalSourceImplTest {
                         id = 1,
                         name = "Test-Category-1",
                         description = "Test-Description-1",
-                        iconType = "Test-Category-Icon-1"
+                        iconType = CategoryIconType.Label
                     ),
                     CategoryEntity(
                         id = 2,
                         name = "Test-Category-2",
                         description = "Test-Description-2",
-                        iconType = "Test-Category-Icon-2"
+                        iconType = CategoryIconType.Label
                     )
                 )
                 val testFlow = flowOf(testCategoryEntities)

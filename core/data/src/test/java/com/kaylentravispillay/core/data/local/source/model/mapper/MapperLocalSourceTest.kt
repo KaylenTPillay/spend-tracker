@@ -5,6 +5,7 @@ import com.kaylentravispillay.core.data.local.database.tables.TransactionEntity
 import com.kaylentravispillay.core.data.local.source.model.mapper.MapperLocalSource.toEntity
 import com.kaylentravispillay.core.data.local.source.model.mapper.MapperLocalSource.toLocal
 import com.kaylentravispillay.core.domain.model.Category
+import com.kaylentravispillay.core.domain.model.CategoryIconType
 import com.kaylentravispillay.core.domain.model.Transaction
 import com.kaylentravispillay.core.domain.model.TransactionType
 import io.kotest.matchers.equals.shouldEqual
@@ -31,7 +32,7 @@ class MapperLocalSourceTest {
                     id = 2,
                     name = "Test-Category-Name",
                     description = "Test-Category-Description",
-                    iconType = "Test-Category-Icon-Type"
+                    iconType = CategoryIconType.Label
                 ),
                 timestamp = 1_000_000L
             )
@@ -61,13 +62,13 @@ class MapperLocalSourceTest {
                 id = 2,
                 name = "Test-Category-Name",
                 description = "Test-Category-Description",
-                iconType = "Test-Icon-Type"
+                iconType = CategoryIconType.Label
             )
             val expectedEntity = CategoryEntity(
                 id = 2,
                 name = "Test-Category-Name",
                 description = "Test-Category-Description",
-                iconType = "Test-Icon-Type"
+                iconType = CategoryIconType.Label
             )
 
             // Act
@@ -87,13 +88,13 @@ class MapperLocalSourceTest {
                 id = 2,
                 name = "Test-Category-Name",
                 description = "Test-Category-Description",
-                iconType = "Test-Category-Icon-Type"
+                iconType = CategoryIconType.Label
             )
             val expectedLocal = Category(
                 id = 2,
                 name = "Test-Category-Name",
                 description = "Test-Category-Description",
-                iconType = "Test-Category-Icon-Type"
+                iconType = CategoryIconType.Label
             )
 
             // Act

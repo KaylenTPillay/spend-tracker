@@ -35,7 +35,7 @@ fun CategoryIcon(
     Icon(
         modifier = modifier,
         imageVector = state.asImageVector(),
-        contentDescription = state.key,
+        contentDescription = state.name,
         tint = tint ?: LocalContentColor.current
     )
 }

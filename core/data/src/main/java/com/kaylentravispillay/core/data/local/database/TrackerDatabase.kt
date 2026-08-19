@@ -3,6 +3,7 @@ package com.kaylentravispillay.core.data.local.database
 import androidx.room3.ColumnTypeConverters
 import androidx.room3.Database
 import androidx.room3.RoomDatabase
+import com.kaylentravispillay.core.data.local.database.converter.CategoryConverter
 import com.kaylentravispillay.core.data.local.database.converter.TransactionConverter
 import com.kaylentravispillay.core.data.local.database.daos.CategoryDao
 import com.kaylentravispillay.core.data.local.database.daos.TransactionDao
@@ -22,7 +23,8 @@ import com.kaylentravispillay.core.data.local.database.tables.TransactionEntity
 )
 @ColumnTypeConverters(
     value = [
-        TransactionConverter::class
+        TransactionConverter::class,
+        CategoryConverter::class
     ]
 )
 internal abstract class TrackerDatabase : RoomDatabase() {

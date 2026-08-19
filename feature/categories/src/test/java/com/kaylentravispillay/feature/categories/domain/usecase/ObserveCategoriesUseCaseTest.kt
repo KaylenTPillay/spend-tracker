@@ -2,6 +2,7 @@ package com.kaylentravispillay.feature.categories.domain.usecase
 
 import app.cash.turbine.test
 import com.kaylentravispillay.core.domain.model.Category
+import com.kaylentravispillay.core.domain.model.CategoryIconType
 import com.kaylentravispillay.feature.categories.domain.repository.CategoryRepository
 import io.kotest.matchers.equals.shouldEqual
 import io.mockk.clearMocks
@@ -40,13 +41,13 @@ class ObserveCategoriesUseCaseTest {
                 id = 0,
                 name = "Test-Category-Name-0",
                 description = "Test-Category-Description-0",
-                iconType = "Test-Icon-Type-0"
+                iconType = CategoryIconType.Label
             ),
             Category(
                 id = 1,
                 name = "Test-Category-Name-1",
                 description = "Test-Category-Description-1",
-                iconType = "Test-Icon-Type-1"
+                iconType = CategoryIconType.Label
             )
         )
         val testFlow = flowOf(expectedCategoriesList)
