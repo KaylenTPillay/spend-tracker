@@ -4,6 +4,7 @@ import app.cash.turbine.test
 import com.kaylentravispillay.core.data.local.source.CategoryLocalSource
 import com.kaylentravispillay.core.domain.model.Category
 import com.kaylentravispillay.core.domain.model.CategoryIconType
+import com.kaylentravispillay.core.domain.provider.StringProvider
 import io.kotest.matchers.equals.shouldEqual
 import io.mockk.clearMocks
 import io.mockk.every
@@ -20,6 +21,7 @@ import org.junit.jupiter.api.Test
 class CategoryRepositoryImplTest {
     private lateinit var repository: CategoryRepositoryImpl
     private val mockLocalSource: CategoryLocalSource = mockk()
+    private val mockProvider: StringProvider = mockk()
 
     @OptIn(ExperimentalCoroutinesApi::class)
     private val testDispatcher = UnconfinedTestDispatcher()
@@ -28,7 +30,9 @@ class CategoryRepositoryImplTest {
     fun setup() {
         repository = CategoryRepositoryImpl(
             categoryLocalSource = mockLocalSource,
-            dispatcher = testDispatcher
+            provider = mockProvider,
+            ioDispatcher = testDispatcher,
+            defaultDispatcher = testDispatcher
         )
     }
 

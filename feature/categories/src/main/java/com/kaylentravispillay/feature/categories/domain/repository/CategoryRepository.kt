@@ -5,4 +5,6 @@ import kotlinx.coroutines.flow.Flow
 
 internal interface CategoryRepository {
     fun observeCategories(): Flow<List<Category>>
+
+    suspend fun getSuggestedCategories(): List<Category>
 }

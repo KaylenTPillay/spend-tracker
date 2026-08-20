@@ -2,4 +2,45 @@
 <resources>
     <string name="categories">Categories</string>
     <string name="confirm_categories">Confirm Categories</string>
+
+    <string name="category_default_groceries_title">Groceries</string>
+    <string name="category_default_groceries_description">
+        Supermarkets, shopping, and daily essentials
+    </string>
+    <string name="category_default_dinning_title">Dinning Out</string>
+    <string name="category_default_dinning_description">
+        Restaurant, fast food, and delivery
+    </string>
+    <string name="category_default_coffee_title">Coffee &amp; Cafes</string>
+    <string name="category_default_coffee_description">
+        Coffee shops, bakeries, and treats
+    </string>
+    <string name="category_default_transport_title">Transport</string>
+    <string name="category_default_transport_description">
+        Fuel, public transit, and rideshares
+    </string>
+    <string name="category_default_housing_title">Housing</string>
+    <string name="category_default_housing_description">
+        Rent, mortgage, and household maintenance
+    </string>
+    <string name="category_default_shopping_title">Shopping</string>
+    <string name="category_default_shopping_description">
+        Clothing, electronics, and general retail
+    </string>
+    <string name="category_default_subscription_title">Subscriptions</string>
+    <string name="category_default_subscription_description">
+        Streaming services, apps, and recurring bills
+    </string>
+    <string name="category_default_entertainment_title">Entertainment</string>
+    <string name="category_default_entertainment_description">
+        Movies, games, and leisure activities
+    </string>
+    <string name="category_default_health_title">Health</string>
+    <string name="category_default_health_description">
+        Pharmacy, doctor visits, and medical care
+    </string>
+    <string name="category_default_pet_title">Pets</string>
+    <string name="category_default_pet_description">
+        Pet food, vet visits, and accessories
+    </string>
 </resources>

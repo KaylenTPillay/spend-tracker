@@ -6,6 +6,7 @@ import androidx.test.ext.junit.runners.AndroidJUnit4
 import app.cash.turbine.test
 import com.kaylentravispillay.core.data.local.database.TrackerDatabase
 import com.kaylentravispillay.core.data.local.database.tables.CategoryEntity
+import com.kaylentravispillay.core.domain.model.CategoryIconType
 import io.kotest.matchers.equals.shouldEqual
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.UnconfinedTestDispatcher
@@ -15,7 +16,6 @@ import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
 import java.io.IOException
-import kotlin.math.exp
 
 @RunWith(value = AndroidJUnit4::class)
 class CategoryDaoTest {
@@ -67,13 +67,13 @@ class CategoryDaoTest {
                 id = 0,
                 name = "Test-Category-Name-One",
                 description = "Test-Category-Description-One",
-                iconType = "Test-Icon-Type-One"
+                iconType = CategoryIconType.Label
             )
             val testCategoryTwo = CategoryEntity(
                 id = 0,
                 name = "Test-Category-Name-Two",
                 description = "Test-Category-Description-Two",
-                iconType = "Test-Icon-Type-Two"
+                iconType = CategoryIconType.Label
             )
 
             val expectedList = listOf(
