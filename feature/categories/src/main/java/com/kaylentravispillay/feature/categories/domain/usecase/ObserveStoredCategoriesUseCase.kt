@@ -5,7 +5,7 @@ import com.kaylentravispillay.feature.categories.domain.repository.CategoryRepos
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
-internal class ObserveCategoriesUseCase @Inject constructor(
+internal class ObserveStoredCategoriesUseCase @Inject constructor(
     private val repository: CategoryRepository
 ) {
     operator fun invoke(): Flow<List<Category>> {

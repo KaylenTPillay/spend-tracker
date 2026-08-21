@@ -26,12 +26,14 @@ internal class CategoryRepositoryImpl @Inject constructor(
 
     override suspend fun getSuggestedCategories(): List<Category> {
         return withContext(defaultDispatcher) {
-            DefaultCategories.entries.map {
+            DefaultCategories.entries.mapIndexed { index, entry ->
                 Category(
-                    id = 0,
-                    name = provider.getString(it.titleKey),
-                    description = provider.getString(it.descriptionKey),
-                    iconType = it.icon
+                    // Default categories have -negative id's to denote that they are unique
+                    // and are not yet stored by the user.
+                    id = -(index + 1),
+                    name = provider.getString(entry.titleKey),
+                    description = provider.getString(entry.descriptionKey),
+                    iconType = entry.icon
                 )
             }
         }

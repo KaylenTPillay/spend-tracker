@@ -4,6 +4,7 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.RowScope
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -56,9 +57,9 @@ internal fun CategoryScreenRoot(
         modifier = modifier,
         state = state,
         onNavigationIconClick = onNavigationIconClick,
-        onConfirmCategoriesClick = {},
-        onCategoryClick = {},
-        onCreateCategoryClick = {}
+        onConfirmCategoriesClick = viewModel::onConfirmCategoriesClick,
+        onCategoryClick = viewModel::onCategoryClick,
+        onCreateCategoryClick = viewModel::onCreateCategoryClick
     )
 }
 
@@ -71,10 +72,12 @@ internal fun CategoriesScreen(
     onCategoryClick: (id: Int) -> Unit,
     onConfirmCategoriesClick: () -> Unit
 ) {
+
     Scaffold(
         modifier = modifier,
         topBar = {
             CategoryTopAppBar(
+                isManageMode = state.isManageMode,
                 onNavigationIconClick = onNavigationIconClick,
                 onCreateCategoryClick = onCreateCategoryClick
             )
@@ -82,6 +85,7 @@ internal fun CategoriesScreen(
         bottomBar = {
             CategoryBottomBar(
                 isManageMode = state.isManageMode,
+                hasSelectedCategories = state.isConfirmEnabled,
                 onConfirmCategoriesClick = onConfirmCategoriesClick
             )
         }
@@ -116,9 +120,23 @@ internal fun CategoriesScreen(
 @Composable
 private fun CategoryTopAppBar(
     modifier: Modifier = Modifier,
+    isManageMode: Boolean,
     onNavigationIconClick: () -> Unit,
     onCreateCategoryClick: () -> Unit
 ) {
+    val actionsComposable: @Composable RowScope.() -> Unit = if (isManageMode) {
+        {
+            IconButton(onClick = onCreateCategoryClick) {
+                Icon(
+                    imageVector = Icons.Outlined.Add,
+                    contentDescription = "Create Category"
+                )
+            }
+        }
+    } else {
+        {}
+    }
+
     TopAppBar(
         modifier = modifier,
         title = { Text(text = stringResource(R.string.categories)) },
@@ -130,14 +148,7 @@ private fun CategoryTopAppBar(
                 )
             }
         },
-        actions = {
-            IconButton(onClick = onCreateCategoryClick) {
-                Icon(
-                    imageVector = Icons.Outlined.Add,
-                    contentDescription = "Create Category"
-                )
-            }
-        }
+        actions = actionsComposable
     )
 }
 
@@ -145,6 +156,7 @@ private fun CategoryTopAppBar(
 private fun CategoryBottomBar(
     modifier: Modifier = Modifier,
     isManageMode: Boolean,
+    hasSelectedCategories: Boolean,
     onConfirmCategoriesClick: () -> Unit
 ) {
     if (isManageMode) return
@@ -155,7 +167,8 @@ private fun CategoryBottomBar(
                 .fillMaxWidth()
                 .padding(horizontal = TrackerTheme.spacing.md)
                 .padding(bottom = 2.dp),
-            onClick = onConfirmCategoriesClick
+            onClick = onConfirmCategoriesClick,
+            enabled = hasSelectedCategories
         ) {
             Row(
                 verticalAlignment = Alignment.CenterVertically,

@@ -16,8 +16,8 @@ import org.junit.jupiter.api.AfterEach
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 
-class ObserveCategoriesUseCaseTest {
-    private lateinit var useCase: ObserveCategoriesUseCase
+class ObserveStoredCategoriesUseCaseTest {
+    private lateinit var useCase: ObserveStoredCategoriesUseCase
     private val mockRepository: CategoryRepository = mockk()
 
     @OptIn(ExperimentalCoroutinesApi::class)
@@ -25,7 +25,7 @@ class ObserveCategoriesUseCaseTest {
 
     @BeforeEach
     fun setup() {
-        useCase = ObserveCategoriesUseCase(repository = mockRepository)
+        useCase = ObserveStoredCategoriesUseCase(repository = mockRepository)
     }
 
     @AfterEach
